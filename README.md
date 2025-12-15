@@ -33,6 +33,13 @@ A fully automated system that processes PDF class notes and lecture videos into 
 - Identifies relationships between concepts
 - Creates context-aware study materials
 
+🌐 **Intuitive Web Interface**
+- Modern, responsive UI for easy access
+- Drag & drop file upload
+- Real-time progress tracking
+- Interactive preview of generated materials
+- Download materials with one click
+
 ## Installation
 
 1. Clone the repository:
@@ -54,7 +61,25 @@ cp .env.example .env
 
 ## Usage
 
-### Basic Usage
+### Web Interface (Recommended)
+
+The easiest way to use the Study Material Automator is through the web interface:
+
+```bash
+cd web
+python app.py
+```
+
+Then open your browser to `http://localhost:5000`
+
+**Features:**
+- 📤 Drag & drop PDF upload
+- 🎥 Video URL input
+- 📊 Interactive results display
+- 👁️ Preview materials in-browser
+- ⬇️ Download individual files
+
+### Command Line Interface
 
 Process a PDF file:
 ```bash

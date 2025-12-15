@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Material Automator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <h1>Study Material Automator</h1>
+            </div>
+            <p class="tagline">Transform your educational content into structured study materials</p>
+        </header>
+
+        <!-- Upload Section -->
+        <section class="upload-section" id="uploadSection">
+            <div class="upload-card">
+                <h2><i class="fas fa-upload"></i> Upload Your Materials</h2>
+                <p class="subtitle">Upload a PDF document or provide a video URL to generate comprehensive study materials</p>
+                
+                <form id="uploadForm" enctype="multipart/form-data">
+                    <!-- PDF Upload -->
+                    <div class="input-group">
+                        <label for="pdfFile">
+                            <i class="fas fa-file-pdf"></i> PDF Class Notes
+                        </label>
+                        <div class="file-input-wrapper">
+                            <input type="file" id="pdfFile" name="pdf_file" accept=".pdf">
+                            <div class="file-input-display" id="fileDisplay">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <span>Choose a PDF file or drag & drop here</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- URL Input -->
+                    <div class="input-group">
+                        <label for="videoUrl">
+                            <i class="fas fa-video"></i> Video Lecture URL
+                        </label>
+                        <input type="url" id="videoUrl" name="video_url" 
+                               placeholder="https://youtube.com/watch?v=..." 
+                               class="url-input">
+                        <small>Supports YouTube and other video platforms</small>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <i class="fas fa-magic"></i>
+                        Generate Study Materials
+                    </button>
+                </form>
+
+                <!-- Progress Indicator -->
+                <div class="progress-container" id="progressContainer" style="display: none;">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <p class="progress-text" id="progressText">Processing your materials...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section class="results-section" id="resultsSection" style="display: none;">
+            <div class="results-header">
+                <h2><i class="fas fa-check-circle"></i> Study Materials Generated</h2>
+                <button class="new-upload-btn" onclick="resetForm()">
+                    <i class="fas fa-plus"></i> New Upload
+                </button>
+            </div>
+
+            <!-- Summary Cards -->
+            <div class="summary-grid" id="summaryGrid">
+                <div class="summary-card">
+                    <i class="fas fa-book"></i>
+                    <h3>Modules</h3>
+                    <p class="count" id="moduleCount">0</p>
+                </div>
+                <div class="summary-card">
+                    <i class="fas fa-project-diagram"></i>
+                    <h3>Diagrams</h3>
+                    <p class="count" id="diagramCount">0</p>
+                </div>
+                <div class="summary-card">
+                    <i class="fas fa-layer-group"></i>
+                    <h3>Flashcards</h3>
+                    <p class="count" id="flashcardCount">0</p>
+                </div>
+                <div class="summary-card">
+                    <i class="fas fa-clipboard-check"></i>
+                    <h3>Quizzes</h3>
+                    <p class="count" id="quizCount">0</p>
+                </div>
+            </div>
+
+            <!-- Topics Overview -->
+            <div class="topics-section" id="topicsSection">
+                <h3><i class="fas fa-lightbulb"></i> Main Topics Covered</h3>
+                <div class="topics-list" id="topicsList"></div>
+            </div>
+
+            <!-- Tabs for different materials -->
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="modules">
+                    <i class="fas fa-book"></i> Modules
+                </button>
+                <button class="tab-btn" data-tab="diagrams">
+                    <i class="fas fa-project-diagram"></i> Diagrams
+                </button>
+                <button class="tab-btn" data-tab="flashcards">
+                    <i class="fas fa-layer-group"></i> Flashcards
+                </button>
+                <button class="tab-btn" data-tab="quizzes">
+                    <i class="fas fa-clipboard-check"></i> Quizzes
+                </button>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="tab-content">
+                <div class="tab-pane active" id="modules-pane">
+                    <div class="file-list" id="modulesList"></div>
+                </div>
+                <div class="tab-pane" id="diagrams-pane">
+                    <div class="diagram-grid" id="diagramsList"></div>
+                </div>
+                <div class="tab-pane" id="flashcards-pane">
+                    <div class="file-list" id="flashcardsList"></div>
+                </div>
+                <div class="tab-pane" id="quizzes-pane">
+                    <div class="file-list" id="quizzesList"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- File Viewer Modal -->
+        <div class="modal" id="fileModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modalTitle">File Viewer</h3>
+                    <button class="close-btn" onclick="closeModal()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    <!-- Content will be loaded here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© 2025 Study Material Automator | Powered by AI</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

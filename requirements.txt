@@ -24,3 +24,7 @@ pandas>=2.1.0
 python-dotenv>=1.0.0
 requests>=2.31.0
 pyyaml>=6.0.1
+
+# Web Interface
+Flask>=3.0.0
+Werkzeug>=3.0.0
