@@ -40,6 +40,27 @@ A fully automated system that processes PDF class notes and lecture videos into 
 - Interactive preview of generated materials
 - Download materials with one click
 
+🔐 **User Authentication & Accounts**
+- Email/password registration and login
+- OAuth 2.0 (Google, Microsoft, Apple Sign-In)
+- JWT-based secure sessions
+- Personal user accounts with data privacy
+
+📊 **Progress Tracking & Analytics**
+- Module completion tracking
+- Quiz score recording with performance analytics
+- Flashcard review counting
+- Study time tracking
+- Overall completion percentage
+- Personalized study dashboard
+
+📚 **Multiple Topic Management**
+- Upload materials for different subjects
+- Organize study content by topic
+- Track progress separately for each topic
+- Dashboard view of all your topics
+- Topic-specific file management
+
 ## Installation
 
 1. Clone the repository:
@@ -53,10 +74,19 @@ cd study-material-automator
 pip install -r requirements.txt
 ```
 
-3. Set up your OpenAI API key:
+3. Set up configuration:
 ```bash
 cp .env.example .env
-# Edit .env and add your OPENAI_API_KEY
+# Edit .env and add your configuration:
+# - OPENAI_API_KEY (required)
+# - DATABASE_URL (defaults to SQLite)
+# - OAuth credentials (optional, for social login)
+```
+
+4. Initialize the database (for web interface with auth):
+```bash
+cd web
+python -c "from app import app, db; app.app_context().push(); db.create_all()"
 ```
 
 ## Usage
