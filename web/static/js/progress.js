@@ -127,4 +127,9 @@ class ProgressTracker {
 }
 
 // Initialize global progress tracker
-const progressTracker = new ProgressTracker(authManager);
+// Check if authManager is available
+if (typeof authManager !== 'undefined') {
+    const progressTracker = new ProgressTracker(authManager);
+} else {
+    console.warn('AuthManager not loaded. Progress tracker initialization delayed.');
+}

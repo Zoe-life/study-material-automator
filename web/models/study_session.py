@@ -37,7 +37,7 @@ class StudySession(db.Model):
             'start_time': self.start_time.isoformat() if self.start_time else None,
             'end_time': self.end_time.isoformat() if self.end_time else None,
             'duration_minutes': self.duration_minutes,
-            'score': score if self.score else None,
+            'score': self.score if self.score else None,
             'items_completed': self.items_completed,
             'notes': self.notes
         }

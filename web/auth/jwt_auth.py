@@ -9,7 +9,12 @@ jwt = JWTManager()
 
 def init_jwt(app):
     """Initialize JWT manager"""
-    app.config['JWT_SECRET_KEY'] = app.config.get('JWT_SECRET_KEY', 'change-this-secret-key')
+    jwt_secret = app.config.get('JWT_SECRET_KEY')
+    if not jwt_secret or jwt_secret == 'your-jwt-secret-key-here':
+        import secrets
+        jwt_secret = secrets.token_hex(32)
+        print(f"WARNING: Using auto-generated JWT secret. Set JWT_SECRET_KEY in .env for production!")
+    app.config['JWT_SECRET_KEY'] = jwt_secret
     app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(hours=1)
     app.config['JWT_REFRESH_TOKEN_EXPIRES'] = timedelta(days=30)
     jwt.init_app(app)
@@ -33,7 +38,7 @@ def get_current_user():
     try:
         verify_jwt_in_request()
         return get_jwt_identity()
-    except:
+    except Exception:
         return None
 
 
