@@ -3,6 +3,9 @@ import json
 from typing import Dict, List, Optional
 from openai import OpenAI
 
+# Maximum content length for API calls (to avoid token limits)
+MAX_CONTENT_LENGTH = 3000
+
 
 class ContentAnalyzer:
     """Analyzes content using AI to extract concepts, topics, and structure"""
@@ -28,7 +31,7 @@ class ContentAnalyzer:
 4. Suggested module structure
 
 Content:
-{content[:3000]}  # Limit to avoid token limits
+{content[:MAX_CONTENT_LENGTH]}  # Limit to avoid token limits
 
 Respond in JSON format:
 {{
@@ -75,7 +78,7 @@ Respond in JSON format:
 List them in order of importance.
 
 Content:
-{content[:3000]}
+{content[:MAX_CONTENT_LENGTH]}
 
 Respond with a JSON array of concept strings."""
         

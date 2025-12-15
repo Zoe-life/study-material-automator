@@ -1,6 +1,6 @@
 """PDF Processing Module"""
 import os
-from typing import Dict, List
+from typing import Any, Dict, List
 import PyPDF2
 import pdfplumber
 
@@ -11,7 +11,7 @@ class PDFProcessor:
     def __init__(self):
         self.content = {}
     
-    def extract_text(self, pdf_path: str) -> Dict[str, any]:
+    def extract_text(self, pdf_path: str) -> Dict[str, Any]:
         """
         Extract text content from PDF file
         

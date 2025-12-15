@@ -3,6 +3,9 @@ import json
 from typing import Dict, List
 from openai import OpenAI
 
+# Maximum content length for module generation
+MAX_MODULE_CONTENT_LENGTH = 2000
+
 
 class ModuleGenerator:
     """Generates structured learning modules from content"""
@@ -65,7 +68,7 @@ Based on the source content, create a module that includes:
 6. Estimated study time
 
 Source content:
-{content[:2000]}
+{content[:MAX_MODULE_CONTENT_LENGTH]}
 
 Respond in JSON format with the module structure."""
         

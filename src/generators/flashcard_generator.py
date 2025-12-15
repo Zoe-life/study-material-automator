@@ -4,6 +4,9 @@ import csv
 from typing import Dict, List
 from openai import OpenAI
 
+# Maximum content length for flashcard generation
+MAX_FLASHCARD_CONTENT_LENGTH = 3000
+
 
 class FlashcardGenerator:
     """Generates flashcards for studying key concepts"""
@@ -32,7 +35,7 @@ Each flashcard should have:
 - Difficulty level (easy, medium, hard)
 
 Content:
-{content[:3000]}
+{content[:MAX_FLASHCARD_CONTENT_LENGTH]}
 
 Respond in JSON format with an array of flashcard objects."""
         
@@ -78,7 +81,7 @@ Respond in JSON format with an array of flashcard objects."""
         prompt = f"""Create 5 flashcards specifically about: {concept}
 
 Use the following details:
-{details[:1000]}
+{details[:MAX_FLASHCARD_CONTENT_LENGTH // 3]}
 
 Create cards that cover:
 1. Definition

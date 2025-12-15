@@ -2,7 +2,7 @@
 import unittest
 import os
 import tempfile
-from src.processors import PDFProcessor
+from src.processors import PDFProcessor, VideoProcessor
 
 
 class TestPDFProcessor(unittest.TestCase):
@@ -52,7 +52,6 @@ class TestVideoProcessor(unittest.TestCase):
     
     def test_initialization(self):
         """Test processor initializes correctly"""
-        from src.processors import VideoProcessor
         processor = VideoProcessor()
         self.assertIsNotNone(processor)
         self.assertIsNotNone(processor.temp_dir)

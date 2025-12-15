@@ -8,6 +8,9 @@ import matplotlib.patches as mpatches
 from matplotlib.patches import FancyBboxPatch, FancyArrowPatch
 from openai import OpenAI
 
+# Display formatting constants
+MAX_DISPLAY_TEXT_LENGTH = 30
+
 
 class DiagramGenerator:
     """Generates diagrams and visual illustrations for concepts"""
@@ -67,7 +70,7 @@ class DiagramGenerator:
                 ax.add_patch(rel_box)
                 
                 # Wrap text if too long
-                display_text = rel_concept[:30] + '...' if len(rel_concept) > 30 else rel_concept
+                display_text = rel_concept[:MAX_DISPLAY_TEXT_LENGTH] + '...' if len(rel_concept) > MAX_DISPLAY_TEXT_LENGTH else rel_concept
                 ax.text(x, y, display_text, ha='center', va='center',
                        fontsize=9, wrap=True)
                 

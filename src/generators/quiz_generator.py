@@ -3,6 +3,9 @@ import json
 from typing import Dict, List
 from openai import OpenAI
 
+# Maximum content length for quiz generation
+MAX_QUIZ_CONTENT_LENGTH = 3000
+
 
 class QuizGenerator:
     """Generates quizzes and assessments for modules"""
@@ -35,7 +38,7 @@ Include a mix of:
 - Short answer questions
 
 Content:
-{content[:3000]}
+{content[:MAX_QUIZ_CONTENT_LENGTH]}
 
 For each question provide:
 - Question text
@@ -107,7 +110,7 @@ Create 8-12 questions that:
 4. Are appropriate for the difficulty level
 
 Content excerpt:
-{content[:2000]}
+{content[:MAX_MODULE_CONTENT_LENGTH]}
 
 Respond in JSON format."""
         
