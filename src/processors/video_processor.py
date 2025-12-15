@@ -3,6 +3,13 @@ import os
 import tempfile
 from typing import Dict, Optional
 import yt_dlp
+from openai import OpenAI
+
+try:
+    from moviepy.editor import VideoFileClip
+    MOVIEPY_AVAILABLE = True
+except ImportError:
+    MOVIEPY_AVAILABLE = False
 
 
 class VideoProcessor:
@@ -68,7 +75,8 @@ class VideoProcessor:
         
         # If it's a local file, we need to extract using moviepy
         try:
-            from moviepy.editor import VideoFileClip
+            if not MOVIEPY_AVAILABLE:
+                raise ImportError("moviepy not available")
             video = VideoFileClip(video_path)
             video.audio.write_audiofile(audio_output, logger=None)
             video.close()
@@ -110,7 +118,8 @@ class VideoProcessor:
         else:
             # Local file
             try:
-                from moviepy.editor import VideoFileClip
+                if not MOVIEPY_AVAILABLE:
+                    raise ImportError("moviepy not available")
                 video = VideoFileClip(video_source)
                 info['duration'] = video.duration
                 info['title'] = os.path.basename(video_source)
@@ -132,8 +141,6 @@ class VideoProcessor:
             Transcribed text
         """
         try:
-            from openai import OpenAI
-            
             client = OpenAI(api_key=api_key)
             
             with open(audio_path, 'rb') as audio_file:

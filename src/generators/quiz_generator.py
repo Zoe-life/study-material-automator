@@ -89,6 +89,9 @@ Respond in JSON format with a quiz object containing an array of questions."""
         for section in module.get('sections', []):
             if isinstance(section, dict):
                 content += ' ' + section.get('content', '')
+            else:
+                # Handle string sections
+                content += ' ' + str(section)
         
         prompt = f"""Create a comprehensive quiz for the module: {module.get('title', 'Module')}
 

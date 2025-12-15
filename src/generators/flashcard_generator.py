@@ -1,5 +1,6 @@
 """Flashcard Generation Module"""
 import json
+import csv
 from typing import Dict, List
 from openai import OpenAI
 
@@ -133,7 +134,6 @@ Respond in JSON format with an array of flashcard objects."""
                     f.write("\n")
         
         elif format == 'csv':
-            import csv
             with open(output_path, 'w', encoding='utf-8', newline='') as f:
                 writer = csv.DictWriter(f, fieldnames=['front', 'back', 'hint', 'difficulty'])
                 writer.writeheader()

@@ -1,6 +1,7 @@
 """Diagram Generation Module"""
 import json
 import os
+import math
 from typing import Dict, List, Optional
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
@@ -50,7 +51,6 @@ class DiagramGenerator:
         # Draw related concepts around main concept
         num_related = len(related_concepts)
         if num_related > 0:
-            import math
             for i, rel_concept in enumerate(related_concepts[:8]):  # Limit to 8
                 angle = 2 * math.pi * i / min(num_related, 8)
                 x = center_x + 3 * math.cos(angle)

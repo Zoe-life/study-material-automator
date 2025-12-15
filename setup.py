@@ -33,8 +33,6 @@ setup(
         "moviepy>=1.0.3",
         "yt-dlp>=2023.11.0",
         "openai>=1.3.0",
-        "langchain>=0.1.0",
-        "langchain-openai>=0.0.2",
         "tiktoken>=0.5.0",
         "Pillow>=10.0.0",
         "matplotlib>=3.8.0",
