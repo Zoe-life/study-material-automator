@@ -42,6 +42,16 @@ def upload():
         if not pdf_file and not video_url:
             return jsonify({'error': 'Please provide either a PDF file or a video URL'}), 400
         
+        # Validate video URL if provided
+        if video_url:
+            from urllib.parse import urlparse
+            try:
+                parsed = urlparse(video_url)
+                if not parsed.scheme in ['http', 'https']:
+                    return jsonify({'error': 'Invalid video URL. Only HTTP/HTTPS URLs are allowed.'}), 400
+            except Exception:
+                return jsonify({'error': 'Invalid video URL format'}), 400
+        
         # Validate PDF file
         pdf_path = None
         if pdf_file and pdf_file.filename:
@@ -100,6 +110,11 @@ def upload():
 def view_file(session_id, category, filename):
     """View generated file"""
     try:
+        # Validate filename to prevent path traversal
+        filename = secure_filename(filename)
+        if not filename:
+            return jsonify({'error': 'Invalid filename'}), 400
+        
         output_dir = os.path.join(app.config['UPLOAD_FOLDER'], f'output_{session_id}')
         file_path = os.path.join(output_dir, filename)
         
@@ -121,6 +136,11 @@ def view_file(session_id, category, filename):
 def download_file(session_id, filename):
     """Download generated file"""
     try:
+        # Validate filename to prevent path traversal
+        filename = secure_filename(filename)
+        if not filename:
+            return jsonify({'error': 'Invalid filename'}), 400
+        
         output_dir = os.path.join(app.config['UPLOAD_FOLDER'], f'output_{session_id}')
         file_path = os.path.join(output_dir, filename)
         

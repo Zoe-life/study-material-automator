@@ -133,7 +133,7 @@ function displayResults(data) {
     if (data.summary.analysis && data.summary.analysis.main_topics) {
         const topicsList = document.getElementById('topicsList');
         topicsList.innerHTML = data.summary.analysis.main_topics
-            .map(topic => `<span class="topic-tag">${topic}</span>`)
+            .map(topic => `<span class="topic-tag">${escapeHtml(topic)}</span>`)
             .join('');
     }
     
@@ -151,7 +151,7 @@ function displayResults(data) {
 function populateModules(modules) {
     const list = document.getElementById('modulesList');
     list.innerHTML = modules.map((path, index) => {
-        const filename = path.split('/').pop();
+        const filename = escapeHtml(path.split('/').pop());
         return `
             <div class="file-item">
                 <div class="file-info">
@@ -178,8 +178,8 @@ function populateModules(modules) {
 function populateDiagrams(diagrams) {
     const grid = document.getElementById('diagramsList');
     grid.innerHTML = diagrams.map(path => {
-        const filename = path.split('/').pop();
-        const name = filename.replace('.png', '').replace('diagram_', '').replace(/_/g, ' ');
+        const filename = escapeHtml(path.split('/').pop());
+        const name = escapeHtml(filename.replace('.png', '').replace('diagram_', '').replace(/_/g, ' '));
         return `
             <div class="diagram-item">
                 <img src="/view/${currentSessionId}/diagrams/${filename}" 
@@ -201,7 +201,7 @@ function populateDiagrams(diagrams) {
 function populateFlashcards(flashcards) {
     const list = document.getElementById('flashcardsList');
     list.innerHTML = flashcards.map(path => {
-        const filename = path.split('/').pop();
+        const filename = escapeHtml(path.split('/').pop());
         return `
             <div class="file-item">
                 <div class="file-info">
@@ -228,7 +228,7 @@ function populateFlashcards(flashcards) {
 function populateQuizzes(quizzes) {
     const list = document.getElementById('quizzesList');
     list.innerHTML = quizzes.map((path, index) => {
-        const filename = path.split('/').pop();
+        const filename = escapeHtml(path.split('/').pop());
         const isComprehensive = filename.includes('comprehensive');
         return `
             <div class="file-item">
@@ -275,7 +275,7 @@ async function viewFile(category, filename) {
 function viewImage(filename, title) {
     document.getElementById('modalTitle').textContent = title;
     document.getElementById('modalBody').innerHTML = 
-        `<img src="/view/${currentSessionId}/diagrams/${filename}" alt="${title}">`;
+        `<img src="/view/${currentSessionId}/diagrams/${escapeHtml(filename)}" alt="${escapeHtml(title)}">`;
     document.getElementById('fileModal').classList.add('active');
 }
 
@@ -338,7 +338,28 @@ function escapeHtml(text) {
 }
 
 function showError(message) {
-    alert('Error: ' + message);
+    // Create a better error notification
+    const errorDiv = document.createElement('div');
+    errorDiv.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #ef4444;
+        color: white;
+        padding: 15px 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        z-index: 10000;
+        max-width: 400px;
+        animation: slideIn 0.3s ease;
+    `;
+    errorDiv.innerHTML = `<strong>Error:</strong> ${escapeHtml(message)}`;
+    document.body.appendChild(errorDiv);
+    
+    setTimeout(() => {
+        errorDiv.style.animation = 'slideOut 0.3s ease';
+        setTimeout(() => errorDiv.remove(), 300);
+    }, 5000);
 }
 
 // Close modal on outside click
