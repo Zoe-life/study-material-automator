@@ -4,7 +4,7 @@
 
 This guide covers the authentication system and progress tracking features added to the Study Material Automator.
 
-## 🔐 Authentication System
+## Authentication System
 
 ### Features
 - **Email/Password Authentication**: Traditional login and registration
@@ -93,7 +93,7 @@ Navigate to:
 - Microsoft: `/auth/microsoft/login`
 - Apple: `/auth/apple/login`
 
-## 📊 Progress Tracking
+## Progress Tracking
 
 ### Features
 - Module completion tracking
@@ -183,7 +183,7 @@ Content-Type: application/json
 }
 ```
 
-## 📚 Multiple Topic Management
+## Multiple Topic Management
 
 ### Features
 - Upload materials for different subjects/topics
@@ -236,7 +236,7 @@ GET /api/topics/<topic_id>
 Authorization: Bearer <access_token>
 ```
 
-## 🎯 Dashboard
+## Dashboard
 
 ### Get Dashboard Data
 ```http
@@ -259,7 +259,7 @@ Authorization: Bearer <access_token>
 }
 ```
 
-## 🔒 Protected File Access
+## Protected File Access
 
 All generated files are now protected and require authentication:
 
@@ -273,7 +273,7 @@ GET /api/files/<topic_id>/<filename>/download
 Authorization: Bearer <access_token>
 ```
 
-## 🎨 Frontend Integration
+## Frontend Integration
 
 ### Using Auth Manager
 ```javascript
@@ -337,7 +337,7 @@ document.getElementById('progress-container').innerHTML =
   progressTracker.renderProgressCard(progress);
 ```
 
-## 🗄️ Database Schema
+## Database Schema
 
 ### Users Table
 - id (PK)
@@ -395,7 +395,7 @@ document.getElementById('progress-container').innerHTML =
 - items_completed
 - notes
 
-## 🔧 Configuration for OAuth Providers
+## Configuration for OAuth Providers
 
 ### Google OAuth
 1. Go to [Google Cloud Console](https://console.cloud.google.com/)
@@ -421,7 +421,7 @@ document.getElementById('progress-container').innerHTML =
 5. Generate private key
 6. Configure `.env` with credentials
 
-## 🚀 Running the Enhanced App
+## Running the Enhanced App
 
 ```bash
 # Start the server
@@ -431,7 +431,7 @@ python app.py
 # The app will be available at http://localhost:5000
 ```
 
-## 📱 Example User Flow
+## Example User Flow
 
 1. User visits the app
 2. Clicks "Sign Up" or "Login"
@@ -459,7 +459,7 @@ python app.py
 - XSS protection in frontend
 - CORS configured appropriately
 
-## 📊 Analytics & Insights
+## Analytics & Insights
 
 The system tracks:
 - Time spent studying
@@ -469,7 +469,7 @@ The system tracks:
 - Study patterns and habits
 - Per-topic and overall progress
 
-## 🔮 Future Enhancements
+## Future Enhancements
 
 Potential additions:
 - Email verification

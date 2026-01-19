@@ -4,49 +4,49 @@ A fully automated system that processes PDF class notes and lecture videos into 
 
 ## Features
 
-🎯 **Comprehensive Content Processing**
+**Comprehensive Content Processing**
 - Extract and analyze text from PDF class notes
 - Process and transcribe lecture videos (local files or URLs)
 - Intelligent content analysis using AI
 
-📚 **Structured Learning Modules**
+**Structured Learning Modules**
 - Automatically organize content into digestible modules
 - Break down complex concepts into simple explanations
 - Create learning objectives for each module
 - Estimate study time requirements
 
-🎨 **Visual Learning Materials**
+**Visual Learning Materials**
 - Generate concept map diagrams
 - Create flow diagrams for processes
 - Build hierarchical relationship diagrams
 - Export high-quality PNG images
 
-🃏 **Interactive Study Tools**
+**Interactive Study Tools**
 - Generate flashcards with spaced repetition schedules
 - Create comprehensive quizzes for each module
 - Multiple question types (multiple choice, true/false, short answer)
 - Automatic quiz grading functionality
 
-🤖 **AI-Powered Intelligence**
+**AI-Powered Intelligence**
 - Uses GPT-4 for content analysis and generation
 - Simplifies complex concepts with analogies
 - Identifies relationships between concepts
 - Creates context-aware study materials
 
-🌐 **Intuitive Web Interface**
+**Intuitive Web Interface**
 - Modern, responsive UI for easy access
 - Drag & drop file upload
 - Real-time progress tracking
 - Interactive preview of generated materials
 - Download materials with one click
 
-🔐 **User Authentication & Accounts**
+**User Authentication & Accounts**
 - Email/password registration and login
 - OAuth 2.0 (Google, Microsoft, Apple Sign-In)
 - JWT-based secure sessions
 - Personal user accounts with data privacy
 
-📊 **Progress Tracking & Analytics**
+**Progress Tracking & Analytics**
 - Module completion tracking
 - Quiz score recording with performance analytics
 - Flashcard review counting
@@ -54,7 +54,7 @@ A fully automated system that processes PDF class notes and lecture videos into 
 - Overall completion percentage
 - Personalized study dashboard
 
-📚 **Multiple Topic Management**
+**Multiple Topic Management**
 - Upload materials for different subjects
 - Organize study content by topic
 - Track progress separately for each topic
@@ -103,11 +103,11 @@ python app.py
 Then open your browser to `http://localhost:5000`
 
 **Features:**
-- 📤 Drag & drop PDF upload
-- 🎥 Video URL input
-- 📊 Interactive results display
-- 👁️ Preview materials in-browser
-- ⬇️ Download individual files
+- Drag & drop PDF upload
+- Video URL input
+- Interactive results display
+- Preview materials in-browser
+- Download individual files
 
 ### Command Line Interface
 

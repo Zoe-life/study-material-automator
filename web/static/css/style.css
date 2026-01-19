@@ -1,14 +1,14 @@
 /* Modern Study Material Automator Styles */
 
 :root {
-    --primary-color: #6366f1;
-    --primary-dark: #4f46e5;
-    --secondary-color: #8b5cf6;
+    --primary-color: #1e3a8a;        /* Dark blue */
+    --primary-dark: #1e40af;          /* Slightly lighter dark blue */
+    --secondary-color: #0ea5e9;       /* Vivid blue */
     --success-color: #10b981;
     --danger-color: #ef4444;
     --warning-color: #f59e0b;
-    --background: #f8fafc;
-    --card-bg: #ffffff;
+    --background: #ffffff;            /* White background */
+    --card-bg: #ffffff;               /* White cards */
     --text-primary: #1e293b;
     --text-secondary: #64748b;
     --border-color: #e2e8f0;
