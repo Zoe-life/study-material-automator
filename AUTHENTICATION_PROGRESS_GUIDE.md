@@ -4,7 +4,7 @@
 
 This guide covers the authentication system and progress tracking features added to the Study Material Automator.
 
-## 🔐 Authentication System
+## Authentication System
 
 ### Features
 - **Email/Password Authentication**: Traditional login and registration

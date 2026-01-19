@@ -2,7 +2,7 @@
 
 ## Get Started in 3 Steps
 
-### 1️⃣ Install & Configure
+### Step 1: Install & Configure
 
 ```bash
 # Install dependencies
@@ -13,7 +13,7 @@ cp .env.example .env
 # Edit .env and add your OPENAI_API_KEY
 ```
 
-### 2️⃣ Start the Web Server
+### Step 2: Start the Web Server
 
 **Option A: Using the startup script (recommended)**
 ```bash
@@ -26,7 +26,7 @@ cd web
 python app.py
 ```
 
-### 3️⃣ Use the Web Interface
+### Step 3: Use the Web Interface
 
 1. Open your browser to: **http://localhost:5000**
 
@@ -45,23 +45,23 @@ python app.py
 ## Web Interface Features
 
 ### Upload Section
-- ✨ **Drag & Drop**: Easy file upload
-- 📹 **Video URLs**: YouTube and other platforms
-- 📊 **Progress Bar**: Real-time processing status
+- **Drag & Drop**: Easy file upload
+- **Video URLs**: YouTube and other platforms
+- **Progress Bar**: Real-time processing status
 
 ### Results Display
-- 📈 **Summary Cards**: Quick overview of materials
-- 🏷️ **Topics Tags**: Main concepts covered
-- 🗂️ **Tabbed Interface**: Organized by type
+- **Summary Cards**: Quick overview of materials
+- **Topics Tags**: Main concepts covered
+- **Tabbed Interface**: Organized by type
   - Learning Modules
   - Concept Diagrams
   - Study Flashcards
   - Practice Quizzes
 
 ### File Actions
-- 👁️ **Preview**: View content in modal
-- ⬇️ **Download**: Save files locally
-- 🔄 **New Upload**: Process more materials
+- **Preview**: View content in modal
+- **Download**: Save files locally
+- **New Upload**: Process more materials
 
 ## Example Workflow
 
@@ -111,17 +111,17 @@ cat .env | grep OPENAI_API_KEY
 
 ## Tips
 
-💡 **Best Results:**
+**Best Results:**
 - Use clear, well-formatted PDFs
 - Combine notes with video lectures
 - Start with shorter content (5-10 pages)
 
-💡 **Performance:**
+**Performance:**
 - Processing time depends on content length
 - First upload may take longer
 - Results are cached per session
 
-💡 **Studying:**
+**Studying:**
 1. Read modules first
 2. Review diagrams for visual understanding
 3. Practice with flashcards
