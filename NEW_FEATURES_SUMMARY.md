@@ -224,14 +224,14 @@ python app.py
 
 ## Security
 
-✅ All CodeQL checks passed
-✅ Bcrypt password hashing
-✅ JWT token expiration
-✅ OAuth validation
-✅ User-scoped data access
-✅ SQL injection protection
-✅ XSS protection
-✅ Proper exception handling
+- All CodeQL checks passed
+- Bcrypt password hashing
+- JWT token expiration
+- OAuth validation
+- User-scoped data access
+- SQL injection protection
+- XSS protection
+- Proper exception handling
 
 ## User Flow Example
 

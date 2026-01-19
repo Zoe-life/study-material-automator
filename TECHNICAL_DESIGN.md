@@ -952,10 +952,10 @@ def process_content_chunks(content: str) -> Generator[AnalysisResult, None, None
 **Choice: JWT (Stateless)**
 
 **Trade-off:**
-- ✅ **Pro**: No database query per request (faster, O(1) vs O(log n))
-- ✅ **Pro**: Horizontally scalable (no shared session state)
-- ❌ **Con**: Cannot revoke token before expiry (1 hour window)
-- ❌ **Con**: Slightly larger payload (JWT > session ID)
+- [+] **Pro**: No database query per request (faster, O(1) vs O(log n))
+- [+] **Pro**: Horizontally scalable (no shared session state)
+- [-] **Con**: Cannot revoke token before expiry (1 hour window)
+- [-] **Con**: Slightly larger payload (JWT > session ID)
 
 **Mitigation:**
 - Short expiry (1 hour) limits revocation window
@@ -966,8 +966,8 @@ def process_content_chunks(content: str) -> Generator[AnalysisResult, None, None
 **Choice: Cost Factor 12**
 
 **Trade-off:**
-- ✅ **Pro**: Strong resistance to brute force (~0.3s per hash)
-- ❌ **Con**: Slower login (~300ms vs <1ms for weaker hashes)
+- [+] **Pro**: Strong resistance to brute force (~0.3s per hash)
+- [-] **Con**: Slower login (~300ms vs <1ms for weaker hashes)
 
 **Justification:**
 - Login frequency << security importance
@@ -979,11 +979,11 @@ def process_content_chunks(content: str) -> Generator[AnalysisResult, None, None
 **Choice: ORM**
 
 **Trade-off:**
-- ✅ **Pro**: SQL injection prevention (automatic parameterization)
-- ✅ **Pro**: Database portability (SQLite → PostgreSQL)
-- ✅ **Pro**: Reduced boilerplate (Pythonic queries)
-- ❌ **Con**: ~10-15% performance overhead vs raw SQL
-- ❌ **Con**: Potential N+1 query issues
+- [+] **Pro**: SQL injection prevention (automatic parameterization)
+- [+] **Pro**: Database portability (SQLite → PostgreSQL)
+- [+] **Pro**: Reduced boilerplate (Pythonic queries)
+- [-] **Con**: ~10-15% performance overhead vs raw SQL
+- [-] **Con**: Potential N+1 query issues
 
 **Mitigation:**
 - Use `joinedload()` for eager loading to prevent N+1
@@ -1006,12 +1006,12 @@ def process_content_chunks(content: str) -> Generator[AnalysisResult, None, None
 
 | Metric | Value | Status |
 |--------|-------|--------|
-| **Average Processing Time** | 45-90s per topic | ✅ Acceptable |
-| **Database Query Time** | <20ms (indexed) | ✅ Fast |
-| **API Response Time** | <100ms (cached) | ✅ Fast |
-| **Memory Usage** | ~200MB per process | ✅ Efficient |
-| **Concurrent Users** | 100+ (single server) | ✅ Adequate |
-| **Cost per Topic** | ~$0.15 (GPT-4) | ✅ Reasonable |
+| **Average Processing Time** | 45-90s per topic | [OK] Acceptable |
+| **Database Query Time** | <20ms (indexed) | [OK] Fast |
+| **API Response Time** | <100ms (cached) | [OK] Fast |
+| **Memory Usage** | ~200MB per process | [OK] Efficient |
+| **Concurrent Users** | 100+ (single server) | [OK] Adequate |
+| **Cost per Topic** | ~$0.15 (GPT-4) | [OK] Reasonable |
 
 ### Future Optimization Opportunities
 
