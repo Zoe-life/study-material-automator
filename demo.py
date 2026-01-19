@@ -33,12 +33,12 @@ This system converts educational content into comprehensive study materials.
 ┌─────────────────────────────────────────────────────────────────┐
 │                        PROCESSING LAYER                         │
 ├─────────────────────────────────────────────────────────────────┤
-│  📄 PDF Processor                                               │
+│  [PDF] PDF Processor                                            │
 │     • Text extraction                                           │
 │     • Table extraction                                          │
 │     • Heading identification                                    │
 │                                                                 │
-│  🎥 Video Processor                                             │
+│  [VIDEO] Video Processor                                        │
 │     • Video download (YouTube, etc.)                            │
 │     • Audio extraction                                          │
 │     • Speech-to-text transcription                             │
@@ -48,7 +48,7 @@ This system converts educational content into comprehensive study materials.
 ┌─────────────────────────────────────────────────────────────────┐
 │                       ANALYSIS LAYER (AI)                       │
 ├─────────────────────────────────────────────────────────────────┤
-│  🤖 Content Analyzer (GPT-4)                                    │
+│  [AI] Content Analyzer (GPT-4)                                 │
 │     • Topic identification                                      │
 │     • Concept extraction                                        │
 │     • Difficulty assessment                                     │
@@ -60,22 +60,22 @@ This system converts educational content into comprehensive study materials.
 ┌─────────────────────────────────────────────────────────────────┐
 │                      GENERATION LAYER (AI)                      │
 ├─────────────────────────────────────────────────────────────────┤
-│  📚 Module Generator                                            │
+│  [MODULES] Module Generator                                     │
 │     • Breaking content into digestible units                    │
 │     • Learning objectives                                       │
 │     • Simplified explanations                                   │
 │                                                                 │
-│  📊 Diagram Generator                                           │
+│  [DIAGRAMS] Diagram Generator                                   │
 │     • Concept maps                                              │
 │     • Flow diagrams                                             │
 │     • Hierarchical structures                                   │
 │                                                                 │
-│  🃏 Flashcard Generator                                         │
+│  [CARDS] Flashcard Generator                                    │
 │     • Q&A pairs                                                 │
 │     • Spaced repetition schedules                              │
 │     • Multiple difficulty levels                               │
 │                                                                 │
-│  📝 Quiz Generator                                              │
+│  [QUIZ] Quiz Generator                                          │
 │     • Multiple choice                                           │
 │     • True/False                                                │
 │     • Short answer                                              │
@@ -86,11 +86,11 @@ This system converts educational content into comprehensive study materials.
 ┌─────────────────────────────────────────────────────────────────┐
 │                          OUTPUT MATERIALS                        │
 ├─────────────────────────────────────────────────────────────────┤
-│  📖 Learning Modules                                            │
-│  🎨 Visual Diagrams                                             │
-│  🃏 Study Flashcards                                            │
-│  📝 Practice Quizzes                                            │
-│  📊 Summary Report                                              │
+│  [MODULES] Learning Modules                                     │
+│  [DIAGRAMS] Visual Diagrams                                     │
+│  [CARDS] Study Flashcards                                       │
+│  [QUIZ] Practice Quizzes                                        │
+│  [REPORT] Summary Report                                        │
 └─────────────────────────────────────────────────────────────────┘
     """)
 
@@ -100,14 +100,14 @@ def show_features():
     print_header("KEY FEATURES")
     
     features = [
-        ("🎯 Intelligent Processing", "AI-powered analysis understands context and relationships"),
-        ("📚 Modular Learning", "Content organized into bite-sized, easy-to-digest modules"),
-        ("🎨 Visual Learning", "Auto-generated diagrams and concept maps"),
-        ("🃏 Active Recall", "Flashcards designed for spaced repetition"),
-        ("📝 Self-Assessment", "Comprehensive quizzes with instant feedback"),
-        ("🔄 Multi-Source", "Combine PDF notes and video lectures"),
-        ("💡 Concept Simplification", "Complex topics broken down with analogies"),
-        ("⚡ Fully Automated", "End-to-end processing with minimal manual work"),
+        ("Intelligent Processing", "AI-powered analysis understands context and relationships"),
+        ("Modular Learning", "Content organized into bite-sized, easy-to-digest modules"),
+        ("Visual Learning", "Auto-generated diagrams and concept maps"),
+        ("Active Recall", "Flashcards designed for spaced repetition"),
+        ("Self-Assessment", "Comprehensive quizzes with instant feedback"),
+        ("Multi-Source", "Combine PDF notes and video lectures"),
+        ("Concept Simplification", "Complex topics broken down with analogies"),
+        ("Fully Automated", "End-to-end processing with minimal manual work"),
     ]
     
     for title, description in features:
@@ -154,32 +154,32 @@ def show_output_example():
 After processing, you'll get:
 
 output/
-├── module_1.txt                 📖 Introduction Module
+├── module_1.txt                 [Module] Introduction Module
 │   ├── Learning objectives
 │   ├── Simplified explanations
 │   ├── Key concepts
 │   └── Estimated study time
 │
-├── module_1_quiz.txt            📝 Module 1 Assessment
+├── module_1_quiz.txt            [Quiz] Module 1 Assessment
 │   ├── 10 questions
 │   ├── Multiple formats
 │   └── Answer explanations
 │
-├── module_2.txt                 📖 Advanced Module
-├── module_2_quiz.txt            📝 Module 2 Assessment
+├── module_2.txt                 [Module] Advanced Module
+├── module_2_quiz.txt            [Quiz] Module 2 Assessment
 │
-├── diagram_MachineLearning.png  🎨 Concept Map
-├── diagram_NeuralNetworks.png   🎨 Flow Diagram
+├── diagram_MachineLearning.png  [Diagram] Concept Map
+├── diagram_NeuralNetworks.png   [Diagram] Flow Diagram
 │
-├── flashcards.txt               🃏 20 Study Cards
+├── flashcards.txt               [Cards] 20 Study Cards
 │   ├── Question/Answer pairs
 │   ├── Difficulty levels
 │   └── Study schedule
 │
-├── comprehensive_quiz.txt       📝 Final Assessment
+├── comprehensive_quiz.txt       [Quiz] Final Assessment
 │   └── 15 questions covering all topics
 │
-└── summary.json                 📊 Metadata
+└── summary.json                 [Report] Metadata
     └── Analysis results & file listing
     """)
 
@@ -236,7 +236,7 @@ def show_quick_start():
    $ ls output/
    # Study the generated modules, flashcards, and quizzes!
 
-📖 For detailed instructions, see USAGE_GUIDE.md
+For detailed instructions, see USAGE_GUIDE.md
     """)
 
 
@@ -258,10 +258,10 @@ def main():
     
     print_header("LEARN MORE")
     print("""
-  📖 README.md           - Project overview
-  📘 USAGE_GUIDE.md      - Comprehensive usage documentation
-  📝 CONTRIBUTING.md     - Contribution guidelines
-  💻 examples/           - Example scripts and usage patterns
+  [README] README.md           - Project overview
+  [GUIDE] USAGE_GUIDE.md       - Comprehensive usage documentation
+  [CONTRIB] CONTRIBUTING.md    - Contribution guidelines
+  [EXAMPLES] examples/         - Example scripts and usage patterns
   
   GitHub: https://github.com/Zoe-life/study-material-automator
     """)
