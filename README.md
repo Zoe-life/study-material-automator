@@ -1,16 +1,30 @@
-# Study Material Automator
+<div align="center">
 
-A fully automated system that processes PDF class notes and lecture videos into structured study materials, complete with diagrams, flashcards, quizzes, and simplified explanations.
+# 📚 Rafiki
+
+### *Your study companion — turning class notes into mastery.*
+
+**Rafiki** (Swahili for "friend") is a fully automated system that transforms PDF class notes and lecture videos into structured study materials — complete with diagrams, flashcards, quizzes, and simplified explanations. Upload your notes, and Rafiki does the rest.
+
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://python.org)
+[![Status](https://img.shields.io/badge/status-active%20development-brightgreen.svg)]()
+
+[Features](#features) · [Installation](#installation) · [Usage](#usage) · [Architecture](#architecture) · [Contributing](#contributing)
+
+</div>
+
+---
 
 ## Features
 
 **Comprehensive Content Processing**
-- Extract and analyze text from PDF class notes
+- Extract and analyse text from PDF class notes
 - Process and transcribe lecture videos (local files or URLs)
 - Intelligent content analysis using AI
 
 **Structured Learning Modules**
-- Automatically organize content into digestible modules
+- Automatically organise content into digestible modules
 - Break down complex concepts into simple explanations
 - Create learning objectives for each module
 - Estimate study time requirements
@@ -52,29 +66,34 @@ A fully automated system that processes PDF class notes and lecture videos into 
 - Flashcard review counting
 - Study time tracking
 - Overall completion percentage
-- Personalized study dashboard
+- Personalised study dashboard
 
 **Multiple Topic Management**
 - Upload materials for different subjects
-- Organize study content by topic
+- Organise study content by topic
 - Track progress separately for each topic
 - Dashboard view of all your topics
 - Topic-specific file management
 
+---
+
 ## Installation
 
 1. Clone the repository:
+
 ```bash
-git clone https://github.com/Zoe-life/study-material-automator.git
-cd study-material-automator
+git clone https://github.com/merlynzawadi/study-Rafiki.git
+cd study-Rafiki
 ```
 
 2. Install dependencies:
+
 ```bash
 pip install -r requirements.txt
 ```
 
 3. Set up configuration:
+
 ```bash
 cp .env.example .env
 # Edit .env and add your configuration:
@@ -83,17 +102,18 @@ cp .env.example .env
 # - OAuth credentials (optional, for social login)
 ```
 
-4. Initialize the database (for web interface with auth):
+4. Initialise the database (for web interface with auth):
+
 ```bash
 cd web
 python -c "from app import app, db; app.app_context().push(); db.create_all()"
 ```
 
+---
+
 ## Usage
 
 ### Web Interface (Recommended)
-
-The easiest way to use the Study Material Automator is through the web interface:
 
 ```bash
 cd web
@@ -140,8 +160,6 @@ python main.py --pdf notes.pdf --config custom.env
 
 ### Python API
 
-You can also use the library programmatically:
-
 ```python
 from src.study_material_automator import StudyMaterialAutomator
 from src.utils import Config
@@ -163,9 +181,9 @@ print(f"Flashcards: {results['flashcards']}")
 print(f"Quizzes: {results['quizzes']}")
 ```
 
-## Output Structure
+---
 
-The system generates the following materials in the output directory:
+## Output Structure
 
 ```
 output/
@@ -179,6 +197,8 @@ output/
 ├── comprehensive_quiz.txt    # Overall assessment
 └── summary.json              # Summary of all materials
 ```
+
+---
 
 ## Configuration
 
@@ -195,35 +215,77 @@ OUTPUT_DIR=output                  # Output directory
 TEMP_DIR=temp                      # Temporary files directory
 ```
 
+---
+
 ## Requirements
 
 - Python 3.8+
 - OpenAI API key
 - FFmpeg (for video processing)
 
+---
+
 ## Architecture
 
-The system is organized into modular components:
+Rafiki is organised into modular components:
 
-- **Processors**: Extract content from PDFs and videos
-- **Analyzers**: Use AI to analyze and structure content
-- **Generators**: Create study materials (modules, diagrams, flashcards, quizzes)
-- **CLI**: Command-line interface for easy usage
+- **Processors** — extract content from PDFs and videos
+- **Analyzers** — use AI to analyse and structure content
+- **Generators** — create study materials (modules, diagrams, flashcards, quizzes)
+- **CLI** — command-line interface for easy usage
+
+See [ARCHITECTURE.md](ARCHITECTURE.md) for the full system design and [TECHNICAL_DESIGN.md](TECHNICAL_DESIGN.md) for implementation details.
+
+---
+
+## Documentation
+
+- **[ARCHITECTURE.md](ARCHITECTURE.md)** — system design overview
+- **[TECHNICAL_DESIGN.md](TECHNICAL_DESIGN.md)** — implementation details
+- **[USAGE_GUIDE.md](USAGE_GUIDE.md)** — full usage walkthrough
+- **[QUICK_START_WEB.md](QUICK_START_WEB.md)** — fastest path to running the web interface
+- **[AUTHENTICATION_PROGRESS_GUIDE.md](AUTHENTICATION_PROGRESS_GUIDE.md)** — auth implementation status
+- **[NEW_FEATURES_SUMMARY.md](NEW_FEATURES_SUMMARY.md)** — recent feature additions
+- **[PROJECT_SUMMARY.md](PROJECT_SUMMARY.md)** — high-level project overview
+
+---
 
 ## Examples
 
-See the `examples/` directory for sample inputs and outputs.
+See the [`examples/`](examples/) directory for sample inputs and outputs.
+
+---
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines before submitting a pull request.
+
+```bash
+git clone https://github.com/merlynzawadi/study-Rafiki.git
+cd study-Rafiki
+git checkout -b feature/your-feature-name
+```
+
+---
 
 ## License
 
-This project is open source and available under the MIT License.
+This project is open source and available under the [MIT License](LICENSE).
+
+---
 
 ## Acknowledgments
 
 - Built with OpenAI's GPT-4 for intelligent content analysis
 - Uses Whisper API for video transcription
 - Matplotlib for diagram generation
+
+---
+
+<div align="center">
+
+Built by [Merlyn Zawadi](https://github.com/merlynzawadi) · Backend Engineer & Software Security Researcher
+
+*Rafiki — your friend in every study session.*
+
+</div>
